@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bank
 {
@@ -34,7 +31,7 @@ namespace Bank
                 }
 
                 IUI = transactionTypeFactory?.GetUI(input);
-                
+
                 if (IUI != null)
                     IUI.ShowMenu();
             }

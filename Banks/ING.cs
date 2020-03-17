@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bank
 {
@@ -16,11 +12,13 @@ namespace Bank
         public override void ExecuteTransaction(IBank bankName)
         {
             Console.WriteLine($"{this.ToString()} transaction to {bankName.ToString()} completed");
-            
+
             if (bankName.ToString() == this.ToString())
             {
                 Console.WriteLine("No commission fee.");
-            } else {
+            }
+            else
+            {
                 Console.WriteLine("Commission fee equal to 15");
             }
         }

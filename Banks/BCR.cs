@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bank
 {
     class BCR : BankTransaction, IBank
-    {   
+    {
         public override void ExecuteTransaction()
         {
             Console.WriteLine("BCR transaction completed");
@@ -20,7 +16,9 @@ namespace Bank
             if (bankName.ToString() == this.ToString())
             {
                 Console.WriteLine("No commission fee.");
-            } else {
+            }
+            else
+            {
                 Console.WriteLine("Commission fee equal to 30");
             }
         }
