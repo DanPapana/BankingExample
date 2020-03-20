@@ -6,35 +6,29 @@ namespace Bank
 
     class CardUI : ITransactionUI
     {
-        private static List<ICard> cardProviders = new List<ICard>()
-        {
-            {null },
-            {new Visa() },
-            {new Mastercard() }
-        };
+        private static List<string> cardProviders = new List<string>();
+
+        private ICard cardProvider = null;
 
         public void ShowMenu()
         {
             PrintMenu();
-            Console.WriteLine("Card!");
-            ICard ICard = null;
-            CardFactory cardFactory = new CardFactory(cardProviders);
             bool showMenu = true;
+            bool converted;
 
             while (showMenu)
             {
-                int input = int.Parse(Console.ReadLine());
+                converted = Int32.TryParse(Console.ReadLine(), out int input);
 
-                if (input == 0)
+                if (converted && input <= 0)
                 {
                     showMenu = false;
-                  //  MainMenuUI.ShowMenu();
                 }
 
-                ICard = cardFactory?.GetUI(input);
+                if (converted && input <= cardProviders.Count)
+                {
 
-                //if (ICard != null)
-                //    ICard.ShowMenu();
+                }
             }
         }
 
@@ -42,13 +36,18 @@ namespace Bank
         {
             return "Card Payment";
         }
+
         public void PrintMenu()
         {
             Console.Clear();
             Console.WriteLine("Choose an option: \n0. Exit");
 
-            Console.WriteLine("1. Visa");
-            Console.WriteLine("2. Mastercard");
+            int index = 1;
+            foreach (var element in cardProviders)
+            {
+                Console.WriteLine($"{ index }. { element }");
+                index++;
+            }
 
             Console.Write("\r\nSelect an option: ");
         }

@@ -4,16 +4,26 @@ namespace Bank
 {
     class CardFactory
     {
-        List<ICard> cardProviderList = new List<ICard>();
-        public CardFactory(List<ICard> cardList)
+        List<string> cardProviderList = new List<string>();
+
+        public List<string> CreateUIList()
         {
-            this.cardProviderList = cardList;
+            cardProviderList.Add(new Visa().ToString());
+            cardProviderList.Add(new Mastercard().ToString());
+
+            return cardProviderList;
         }
 
-        public ICard GetUI(int option)
+        public ICard getInstance(int option, CardInfo cardInfo)
         {
-            return cardProviderList[option];
+            switch (option)
+            {
+                case 1:
+                    return new Visa(cardInfo);
+                case 2:
+                    return new Mastercard(cardInfo);
+            }
+            return null;
         }
-
     }
 }
