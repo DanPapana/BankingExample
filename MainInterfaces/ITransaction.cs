@@ -1,7 +1,7 @@
 ﻿namespace Bank
 {
-    interface ITransaction
+    interface ITransaction<T> where T : class, new () 
     {
-        void ExecuteTransaction();
+        int ExecuteTransaction(T transactionData);
     }
 }

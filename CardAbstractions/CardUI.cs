@@ -28,16 +28,20 @@ namespace Bank
                 if (input == 0)
                 {
                     showMenu = false;
-                    MainMenuUI.ShowMenu();
+                  //  MainMenuUI.ShowMenu();
                 }
 
                 ICard = cardFactory?.GetUI(input);
 
-                if (ICard != null)
-                    ICard.ShowMenu();
+                //if (ICard != null)
+                //    ICard.ShowMenu();
             }
         }
 
+        public override string ToString()
+        {
+            return "Card Payment";
+        }
         public void PrintMenu()
         {
             Console.Clear();

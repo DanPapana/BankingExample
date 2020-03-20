@@ -2,25 +2,15 @@
 
 namespace Bank
 {
-    class ING : BankTransaction, IBank
+    class ING : IBank
     {
-        public override void ExecuteTransaction()
+        public bool checkIBAN(string IBAN)
         {
-            Console.WriteLine("ING transaction completed");
+            return false;
         }
-
-        public override void ExecuteTransaction(IBank bankName)
+        public int ExecuteTransaction(BankInfo transactionData)
         {
-            Console.WriteLine($"{this.ToString()} transaction to {bankName.ToString()} completed");
-
-            if (bankName.ToString() == this.ToString())
-            {
-                Console.WriteLine("No commission fee.");
-            }
-            else
-            {
-                Console.WriteLine("Commission fee equal to 15");
-            }
+            return 0;
         }
     }
 }

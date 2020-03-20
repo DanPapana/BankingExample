@@ -58,12 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BankAbstractions\BankInfo.cs" />
+    <Compile Include="CardAbstractions\CardInfo.cs" />
     <Compile Include="Factories\BankFactory.cs" />
-    <Compile Include="BankAbstractions\BankTransaction.cs" />
     <Compile Include="BankAbstractions\BankUI.cs" />
     <Compile Include="Banks\BCR.cs" />
     <Compile Include="Factories\CardFactory.cs" />
-    <Compile Include="CardAbstractions\CardTransaction.cs" />
     <Compile Include="CardAbstractions\CardUI.cs" />
     <Compile Include="BankAbstractions\IBank.cs" />
     <Compile Include="CardAbstractions\ICard.cs" />

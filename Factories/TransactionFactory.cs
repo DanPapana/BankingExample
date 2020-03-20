@@ -5,14 +5,28 @@ namespace Bank
     class TransactionFactory
     {
         List<ITransactionUI> transactionTypeList = new List<ITransactionUI>();
-        public TransactionFactory(List<ITransactionUI> typeList)
+
+        public List<ITransactionUI> CreateUIList()
         {
-            this.transactionTypeList = typeList;
+            transactionTypeList.Add(new CardUI());
+            transactionTypeList.Add(new BankUI());
+
+            return transactionTypeList;
         }
 
-        public ITransactionUI GetUI(int option)
+        /*
+        public ITransactionUI getInstance(int option)
         {
-            return transactionTypeList[option];
+            switch (option)
+            {
+                case 1:
+                    return new CardUI();
+                case 2:
+                    return new BankUI();
+            }
+            
+            return null;
         }
+         */
     }
 }

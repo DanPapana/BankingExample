@@ -2,25 +2,16 @@
 
 namespace Bank
 {
-    class BCR : BankTransaction, IBank
+    class BCR : IBank
     {
-        public override void ExecuteTransaction()
+        public bool checkIBAN(string IBAN)
         {
-            Console.WriteLine("BCR transaction completed");
+            return false;
         }
 
-        public override void ExecuteTransaction(IBank bankName)
+        public int ExecuteTransaction(BankInfo transactionData)
         {
-            Console.WriteLine($"BCR transaction to {bankName.ToString()} completed");
-
-            if (bankName.ToString() == this.ToString())
-            {
-                Console.WriteLine("No commission fee.");
-            }
-            else
-            {
-                Console.WriteLine("Commission fee equal to 30");
-            }
+            return 0;
         }
     }
 }

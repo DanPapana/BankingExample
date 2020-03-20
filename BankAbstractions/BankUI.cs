@@ -36,14 +36,19 @@ namespace Bank
                 if (input == 0)
                 {
                     showMenu = false;
-                    MainMenuUI.ShowMenu();
+                 //   MainMenuUI.ShowMenu();
                 }
 
                 IBank = bankFactory?.GetUI(input);
 
-                if (IBank != null)
-                    IBank.ShowMenu();
+                //if (IBank != null)
+                //    IBank.ShowMenu();
             }
+        }
+
+        public override string ToString()
+        {
+            return "Bank Payment";
         }
 
         public void PrintMenu()

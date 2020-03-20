@@ -1,8 +1,7 @@
 ﻿namespace Bank
 {
-    interface IBank : ITransaction, ITransactionUI
+    interface IBank : ITransaction<BankInfo>
     {
-        void ExecuteTransaction(IBank bankName);
-
+        bool checkIBAN(string IBAN);
     }
 }

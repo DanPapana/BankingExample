@@ -3,7 +3,6 @@
     interface ITransactionUI
     {
         void PrintMenu();
-
         void ShowMenu();
     }
 }

@@ -4,22 +4,7 @@
     {
         static void Main(string[] args)
         {
-            MainMenuUI.ShowMenu();
+            new MainMenuUI().ShowMenu();
         }
     }
 }
-
-
-/*
-     public static void PrintMenu(Dictionary<int, string> menuOptions)
-     {
-         Console.Clear();
-         Console.WriteLine("Choose an option: \n0 Exit");
-
-         foreach (KeyValuePair<int, string> item in menuOptions)
-         {
-             Console.WriteLine($"{item.Key} {item.Value}");
-         }
-         Console.Write("\r\nSelect an option: ");
-     }
-*/

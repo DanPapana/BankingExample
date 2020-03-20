@@ -2,15 +2,17 @@
 
 namespace Bank
 {
-    class Visa : CardTransaction, ICard
+    class Visa : ICard
     {
-        public override void CheckPin()
+      
+        public bool CheckPin(int pin)
         {
-            Console.WriteLine("Visa pin is 1111");
+            return false;
         }
-        public override void ExecuteTransaction()
+
+        public int ExecuteTransaction(CardInfo transactionData)
         {
-            Console.WriteLine("Visa execution completed");
+            return 0;
         }
     }
 }

@@ -2,16 +2,16 @@
 
 namespace Bank
 {
-    class Mastercard : CardTransaction, ICard
+    class Mastercard : ICard
     {
-        public override void CheckPin()
+        public bool CheckPin(int pin)
         {
-            Console.WriteLine("Mastercard pin is 3412");
+            return false;
         }
 
-        public override void ExecuteTransaction()
+        public int ExecuteTransaction(CardInfo transactionData)
         {
-            Console.WriteLine("Mastercard execution completed");
+            return 0;
         }
     }
 }

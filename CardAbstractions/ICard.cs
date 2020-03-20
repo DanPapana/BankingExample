@@ -1,7 +1,7 @@
 ﻿namespace Bank
 {
-    interface ICard : ITransaction, ITransactionUI
+    interface ICard : ITransaction<CardInfo>
     {
-        void CheckPin();
+        bool CheckPin(int pin);
     }
 }

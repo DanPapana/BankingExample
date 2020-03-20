@@ -5,45 +5,41 @@ namespace Bank
 {
     class MainMenuUI
     {
-        private static List<ITransactionUI> transactionTypes = new List<ITransactionUI>()
-        {
-            {null },
-            {new CardUI() },
-            {new BankUI() }
-        };
-
-        public static void ShowMenu()
+        private static List<ITransactionUI> transactionTypes = new TransactionFactory().CreateUIList();
+        public void ShowMenu()
         {
             PrintMenu();
-            Console.WriteLine("Main!");
-            ITransactionUI IUI = null;
-            TransactionFactory transactionTypeFactory = new TransactionFactory(transactionTypes);
             bool showMenu = true;
+            bool converted;
 
             while (showMenu)
             {
-                int input = int.Parse(Console.ReadLine());
+                converted = Int32.TryParse(Console.ReadLine(), out int input);
 
-                if (input == 0)
+                if (converted && input <= 0)
                 {
                     showMenu = false;
-                    MainMenuUI.ShowMenu();
                 }
 
-                IUI = transactionTypeFactory?.GetUI(input);
-
-                if (IUI != null)
-                    IUI.ShowMenu();
+                if (converted && input <= transactionTypes.Count)
+                {
+                    transactionTypes[input - 1].ShowMenu();
+                    //ITransactionUI transaction = new TransactionFactory()?.getInstance(input);
+                }
             }
         }
 
-        public static void PrintMenu()
+        private static void PrintMenu()
         {
             Console.Clear();
-            Console.WriteLine("Choose an option: \n0 Exit");
+            Console.WriteLine("Choose an option: \n0. Exit");
 
-            Console.WriteLine("1. Card Payment");
-            Console.WriteLine("2. Bank Payment");
+            int index = 1;
+            foreach (var element in transactionTypes)
+            {
+                Console.WriteLine($"{ index }. { element }");
+                index++;
+            }
 
             Console.Write("\r\nSelect an option: ");
         }
