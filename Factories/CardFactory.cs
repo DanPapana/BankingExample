@@ -4,7 +4,7 @@ namespace Bank
 {
     class CardFactory
     {
-        List<string> cardProviderList = new List<string>();
+        private List<string> cardProviderList = new List<string>();
 
         public List<string> CreateUIList()
         {

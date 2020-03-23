@@ -4,15 +4,25 @@ namespace Bank
 {
     class BankFactory
     {
-        List<IBank> bankList = new List<IBank>();
-        public BankFactory(List<IBank> bankList)
+        List<string> cardProviderList = new List<string>();
+        public List<string> CreateUIList()
         {
-            this.bankList = bankList;
+            cardProviderList.Add(new ING().ToString());
+            cardProviderList.Add(new BCR().ToString());
+
+            return cardProviderList;
         }
 
-        public IBank GetUI(int option)
+        public IBank getInstance(int option, BankInfo bankInfo)
         {
-            return bankList[option];
+            switch (option)
+            {
+                case 1:
+                    return new ING(bankInfo);
+                case 2:
+                    return new BCR(bankInfo);
+            }
+            return null;
         }
     }
 }

@@ -4,17 +4,16 @@ namespace Bank
 {
     class TransactionFactory
     {
-        List<ITransactionUI> transactionTypeList = new List<ITransactionUI>();
+        List<string> transactionTypeList = new List<string>();
 
-        public List<ITransactionUI> CreateUIList()
+        public List<string> CreateUIList()
         {
-            transactionTypeList.Add(new CardUI());
-            transactionTypeList.Add(new BankUI());
+            transactionTypeList.Add(new CardUI().ToString());
+            transactionTypeList.Add(new BankUI().ToString());
 
             return transactionTypeList;
         }
 
-        /*
         public ITransactionUI getInstance(int option)
         {
             switch (option)
@@ -24,9 +23,7 @@ namespace Bank
                 case 2:
                     return new BankUI();
             }
-            
             return null;
         }
-         */
     }
 }

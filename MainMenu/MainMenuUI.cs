@@ -5,26 +5,28 @@ namespace Bank
 {
     class MainMenuUI
     {
-        private static List<ITransactionUI> transactionTypes = new TransactionFactory().CreateUIList();
+        private static List<string> transactionTypes = new TransactionFactory().CreateUIList();
+        
         public void ShowMenu()
         {
-            PrintMenu();
             bool showMenu = true;
-            bool converted;
-
+        
             while (showMenu)
             {
-                converted = Int32.TryParse(Console.ReadLine(), out int input);
+                PrintMenu();
+                bool converted = Int32.TryParse(Console.ReadLine(), out int input);
 
                 if (converted && input <= 0)
                 {
                     showMenu = false;
-                }
-
-                if (converted && input <= transactionTypes.Count)
+                } 
+                else if (converted && input > 0 && input <= transactionTypes.Count)
                 {
-                    transactionTypes[input - 1].ShowMenu();
-                    //ITransactionUI transaction = new TransactionFactory()?.getInstance(input);
+                    ITransactionUI transaction = new TransactionFactory()?.getInstance(input);
+                    if (transaction != null)
+                    {
+                        transaction.ShowMenu();
+                    }
                 }
             }
         }

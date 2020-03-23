@@ -2,6 +2,6 @@
 {
     interface IBank : ITransaction<BankInfo>
     {
-        bool checkIBAN(string IBAN);
+        //BankInfo MatchIBAN(string IBAN);
     }
 }
